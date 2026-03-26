@@ -60,7 +60,7 @@ class View(object):
                 self.lv.controls.append(ft.Text("Attenzione: Modalità di ricerca non selezionata!", color="red"))
                 self.update()
                 return
-            if (testo == ""):
+            if not testo.strip():
                 self.lv.controls.append(ft.Text("Attenzione: Inserisci del testo prima di avviare!", color="red"))
                 self.update()
                 return
@@ -72,6 +72,7 @@ class View(object):
                 self.lv.controls.append(ft.Text("Parola sbagliate: Nessuna", color = "blue"))
             self.lv.controls.append(ft.Text(f"Il tempo impiegato per la ricerca '{ricerca} è: {tempo:.4f}\n"
                                             f"----------------------------------------------------------------", color = "green"))
+            self.testoIn.value = ""
             self.update()
 
         self.avviaSpell = ft.ElevatedButton(width=170, text="Avvia Spell Check", on_click= gestisci_click)
