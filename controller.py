@@ -4,13 +4,12 @@ import model as md
 
 class SpellChecker:
 
-    def __init__(self, view):
+    def __init__(self, view): #dal main gli viene passato v che è view quindi non c'è bisogno di importarlo
         self._multiDic = md.MultiDictionary()
         self._view = view
 
     def handleSentence(self, txtIn, language, modality):
         txtIn = replaceChars(txtIn.lower())
-
         words = txtIn.split()
         paroleErrate = " - "
 
@@ -55,6 +54,8 @@ class SpellChecker:
               "3. Spagnolo\n" +
               "4. Exit\n" +
               "______________________________\n")
+    def testStampa(self):
+        print(self.lista)
 
 
 def replaceChars(text):
